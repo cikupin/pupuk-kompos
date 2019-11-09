@@ -1,9 +1,10 @@
-.PHONY: help kafka es-cluster-start es-cluster-stop es-cluster-status jaeger-start jaeger-stop jaeger-status pulsar-start pulsar-stop pulsar-status sonarqube-start sonarqube-stop sonarqube-status yugabyte-start yugabyte-stop yugabyte-status
+.PHONY: help kafka es-single-start es-single-stop es-single-status es-cluster-start es-cluster-stop es-cluster-status jaeger-start jaeger-stop jaeger-status pulsar-start pulsar-stop pulsar-status sonarqube-start sonarqube-stop sonarqube-status yugabyte-start yugabyte-stop yugabyte-status
 
 help:
 	@echo 'Command list usage:'
 	@echo
 	@echo '    make help                                Show command list.'
+	@echo '    make es-single-[start/stop/status]       Initialize elasticsearch single node.'
 	@echo '    make es-cluster-[start/stop/status]      Initialize elasticsearch cluster.'
 	@echo '    make jaeger-[start/stop/status]          Initialize jaeger.'
 	@echo '    make kafka                               Initialize kafka.'
@@ -11,6 +12,15 @@ help:
 	@echo '    make sonarqube-[start/stop/status]       Initialize sonarqube.'
 	@echo '    make yubabyte-[start/stop/status]        Initialize yugabyte.'
 	@echo
+
+es-single-start:
+	@docker-compose -f ./elasticsearch/single-node.yml up -d
+
+es-single-stop:
+	@docker-compose -f ./elasticsearch/single-node.yml down
+
+es-single-status:
+	@docker-compose -f ./elasticsearch/single-node.yml ps
 
 es-cluster-start:
 	@sudo sysctl -w vm.max_map_count=262144

@@ -1,0 +1,11 @@
+version: '2.2'
+services:
+  es-single:
+    image: elasticsearch:7.4.2
+    container_name: es_single
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+      - 9300:9300

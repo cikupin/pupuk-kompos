@@ -17,6 +17,7 @@ Run `make help` to show command list:
 ```
 Command list usage:
 
+    make es-single-[start/stop/status]       Initialize elasticsearch single node.
     make es-cluster-[start/stop/status]      Initialize elasticsearch cluster.
     make jaeger-[start/stop/status]          Initialize jaeger.
     make kafka                               Initialize kafka.
