@@ -15,7 +15,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ~/Apps/docker/docker_data/elasticsearch_node01:/usr/share/elasticsearch/data
+      - es_cluster_data01:/usr/share/elasticsearch/data
     ports:
       - 9201:9200
     networks:
@@ -38,7 +38,7 @@ services:
     ports:
       - 9202:9200
     volumes:
-      - ~/Apps/docker/docker_data/elasticsearch_node02:/usr/share/elasticsearch/data
+      - es_cluster_data02:/usr/share/elasticsearch/data
     networks:
       - elasticsearch
 
@@ -59,9 +59,17 @@ services:
     ports:
       - 9203:9200
     volumes:
-      - ~/Apps/docker/docker_data/elasticsearch_node03:/usr/share/elasticsearch/data
+      - es_cluster_data03:/usr/share/elasticsearch/data
     networks:
       - elasticsearch
+
+volumes:
+  es_cluster_data01:
+    driver: local
+  es_cluster_data02:
+    driver: local
+  es_cluster_data03:
+    driver: local
 
 networks:
   elasticsearch:
