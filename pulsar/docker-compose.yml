@@ -1,0 +1,27 @@
+version: '2'
+services:
+  pulsar-all:
+    image: apachepulsar/pulsar-all:2.4.1
+    container_name: pulsar-all-2.4.1
+    expose:
+      - 8080
+      - 6650
+    ports:
+      - "8080:8080" # host:container
+      - "6650:6650"
+    environment:
+      - PULSAR_MEM=" -Xms512m -Xmx512m -XX:MaxDirectMemorySize=1g"
+    command: >
+      /bin/bash -c
+      "bin/apply-config-from-env.py conf/standalone.conf
+      && bin/pulsar standalone"
+  
+  dashboard:
+    image: apachepulsar/pulsar-dashboard:2.4.1
+    container_name: pulsar-dashboard-2.4.1
+    depends_on:
+      - pulsar-all
+    ports:
+      - "80:80"
+    environment:
+      - SERVICE_URL=http://pulsar-all:8080
