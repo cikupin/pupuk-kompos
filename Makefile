@@ -3,12 +3,13 @@
 help:
 	@echo 'Command list usage:'
 	@echo
+	@echo '    make help                                Show command list.'
 	@echo '    make es-cluster-[start/stop/status]      Initialize elasticsearch cluster.'
 	@echo '    make jaeger-[start/stop/status]          Initialize jaeger.'
 	@echo '    make kafka                               Initialize kafka.'
 	@echo '    make pulsar-[start/stop/status]          Initialize pulsar.'
-	@echo '    make sonarqube-[start/stop/status]       Initialize pulsar.'
-	@echo '    make yubabyte-[start/stop/status]        Initialize pulsar.'
+	@echo '    make sonarqube-[start/stop/status]       Initialize sonarqube.'
+	@echo '    make yubabyte-[start/stop/status]        Initialize yugabyte.'
 	@echo
 
 es-cluster-start:
