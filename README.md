@@ -8,6 +8,7 @@ Just a collection of my personal docker-compose dev tools:
 * Apache Pulsar 2.4.1
 * Sonarqube 7.9.1
 * Yugabyte 1.3.0.0-b1
+* TICK stack
 
 Usage
 ------------
