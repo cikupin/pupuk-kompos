@@ -2,7 +2,7 @@ version: '3'
 services:
   # Define an InfluxDB service
   influxdb:
-    image: influxdb:1.5.4-alpine
+    image: influxdb:1.7.9-alpine
     volumes:
       - ~/Apps/docker/docker_data/influxdb:/var/lib/influxdb
     ports:
@@ -12,7 +12,7 @@ services:
 
   # Define a Telegraf service
   telegraf:
-    image: telegraf:1.10.4-alpine
+    image: telegraf:1.12.5-alpine
     volumes:
       - ./conf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
     ports:
@@ -24,7 +24,7 @@ services:
 
   # Define a Chronograf service
   chronograf:
-    image: chronograf:1.5.0.1-alpine
+    image: chronograf:1.7.14-alpine
     environment:
       INFLUXDB_URL: http://influxdb:8086
       KAPACITOR_URL: http://kapacitor:9092
@@ -46,6 +46,7 @@ services:
       - "9092:9092"
     networks:
       - tick-net
+
 networks:
   tick-net:
     driver: "bridge"

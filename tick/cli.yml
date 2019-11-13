@@ -3,11 +3,13 @@ services:
   # Define a service for using the influx CLI tool.
   # docker-compose run influxdb-cli
   influxdb-cli:
-    image: influxdb:1.5.4-alpine
+    image: influxdb:1.7.9-alpine
     entrypoint:
       - influx
       - -host
       - influxdb
+      - -precision
+      - rfc3339
     networks:
       - tick-net
 
