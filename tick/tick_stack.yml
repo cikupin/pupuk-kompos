@@ -3,10 +3,18 @@ services:
   # Define an InfluxDB service
   influxdb:
     image: influxdb:1.7.9-alpine
+    environment:
+      INFLUXDB_UDP_ENABLED: "true"
+      INFLUXDB_UDP_BIND_ADDRESS: ":8089"
+      INFLUXDB_UDP_0_BATCH_SIZE: 5000
+      INFLUXDB_UDP_0_BATCH_PENDING: 10
+      INFLUXDB_UDP_BATCH_TIMEOUT: "1s"
+      INFLUXDB_UDP_BATCH_SIZE: 0
     volumes:
       - ~/Apps/docker/docker_data/influxdb:/var/lib/influxdb
     ports:
       - "8086:8086"
+      - "8089:8089"
     networks:
       - tick-net
 
