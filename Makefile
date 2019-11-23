@@ -8,7 +8,8 @@ help:
 	@echo '    make es-cluster-[start/stop/status]      Initialize elasticsearch cluster.'
 	@echo '    make jaeger-[start/stop/status]          Initialize jaeger.'
 	@echo '    make kafka                               Initialize kafka.'
-	@echo '    make nats-[start/stop/status]            Initialize nats.'
+	@echo '    make nats-[start/stop/status]            Initialize nats server.'
+	@echo '    make nats-streaming-[start/stop/status]  Initialize nats streaming server.'
 	@echo '    make pulsar-[start/stop/status]          Initialize pulsar.'
 	@echo '    make sonarqube-[start/stop/status]       Initialize sonarqube.'
 	@echo '    make yubabyte-[start/stop/status]        Initialize yugabyte.'
@@ -62,6 +63,15 @@ nats-stop:
 
 nats-status:
 	@docker-compose -f ./nats/nats-server.yml ps
+
+nats-streaming-start:
+	@docker-compose -f ./nats/nats-streaming-server.yml up -d
+
+nats-streaming-stop:
+	@docker-compose -f ./nats/nats-streaming-server.yml down
+
+nats-streaming-status:
+	@docker-compose -f ./nats/nats-streaming-server.yml ps
 
 pulsar-start:
 	@docker-compose -f ./pulsar/docker-compose.yml up -d

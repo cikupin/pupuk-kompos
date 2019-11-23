@@ -1,0 +1,8 @@
+version: '2'
+services:
+  nats-streaming:
+    image: nats-streaming:0.16.2-linux
+    container_name: nats-streaming-0.16.2
+    ports:
+      - "4223:4223" # host:container
+      - "8223:8223"

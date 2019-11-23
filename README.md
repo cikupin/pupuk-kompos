@@ -9,6 +9,8 @@ Just a collection of my personal docker-compose dev tools:
 * Sonarqube 7.9.1
 * Yugabyte 1.3.0.0-b1
 * TICK stack
+* NATS Server 2.1.2
+* NATS Streaming 0.16.2
 
 Usage
 ------------
