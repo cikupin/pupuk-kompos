@@ -1,0 +1,9 @@
+version: '2'
+services:
+  nats-server:
+    image: nats:2.1.2-alpine3.10
+    container_name: nats-2.1.2
+    ports:
+      - "4222:4222" # host:container
+      - "6222:6222"
+      - "8222:8222"

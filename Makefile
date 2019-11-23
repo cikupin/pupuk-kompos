@@ -8,6 +8,7 @@ help:
 	@echo '    make es-cluster-[start/stop/status]      Initialize elasticsearch cluster.'
 	@echo '    make jaeger-[start/stop/status]          Initialize jaeger.'
 	@echo '    make kafka                               Initialize kafka.'
+	@echo '    make nats-[start/stop/status]            Initialize nats.'
 	@echo '    make pulsar-[start/stop/status]          Initialize pulsar.'
 	@echo '    make sonarqube-[start/stop/status]       Initialize sonarqube.'
 	@echo '    make yubabyte-[start/stop/status]        Initialize yugabyte.'
@@ -52,6 +53,15 @@ kafka:
 
 kapacitor-cli:
 	@docker-compose -f ./tick/cli.yml run --rm kapacitor-cli
+
+nats-start:
+	@docker-compose -f ./nats/nats-server.yml up -d
+
+nats-stop:
+	@docker-compose -f ./nats/nats-server.yml down
+
+nats-status:
+	@docker-compose -f ./nats/nats-server.yml ps
 
 pulsar-start:
 	@docker-compose -f ./pulsar/docker-compose.yml up -d
