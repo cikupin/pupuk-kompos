@@ -11,6 +11,8 @@ Just a collection of my personal docker-compose dev tools:
 * TICK stack
 * NATS Server 2.1.2
 * NATS Streaming 0.16.2
+* Swagger Editor v3.7.1
+* Swagger UI v3.24.3
 
 Usage
 ------------

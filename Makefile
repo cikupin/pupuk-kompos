@@ -12,6 +12,7 @@ help:
 	@echo '    make nats-streaming-[start/stop/status]  Initialize nats streaming server.'
 	@echo '    make pulsar-[start/stop/status]          Initialize pulsar.'
 	@echo '    make sonarqube-[start/stop/status]       Initialize sonarqube.'
+	@echo '    make swagger-[start/stop/status]         Initialize swagger.'
 	@echo '    make yubabyte-[start/stop/status]        Initialize yugabyte.'
 	@echo '    make tick-[start/stop/status]            Initialize TICK stack.'
 	@echo ''
@@ -90,6 +91,15 @@ sonarqube-stop:
 
 sonarqube-status:
 	@docker-compose -f ./sonarqube/docker-compose.yml ps
+
+swagger-start:
+	@docker-compose -f ./swagger/docker-compose.yml up -d
+
+swagger-stop:
+	@docker-compose -f ./swagger/docker-compose.yml down
+
+swagger-status:
+	@docker-compose -f ./swagger/docker-compose.yml ps
 
 tick-start:
 	@docker-compose -f ./tick/tick_stack.yml up -d

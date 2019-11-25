@@ -1,0 +1,13 @@
+version: '3'
+services:
+  swagger-editor:
+    image: swaggerapi/swagger-editor:v3.7.1
+    container_name: swagger-editor-3.7.1
+    ports:
+      - "8050:8080" # host:container
+  
+  swagger-ui:
+    image: swaggerapi/swagger-ui:v3.24.3
+    container_name: swagger-ui-3.24.3
+    ports:
+      - "8051:8080" # host:container
