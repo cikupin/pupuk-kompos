@@ -1,0 +1,7 @@
+version: '2'
+services:
+  jaeger:
+    image: checkr/flagr:1.1.5
+    container_name: flagr-1.1.5
+    ports:
+      - 18000:18000

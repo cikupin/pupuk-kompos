@@ -6,6 +6,7 @@ help:
 	@echo '    make help                                Show command list.'
 	@echo '    make es-single-[start/stop/status]       Initialize elasticsearch single node.'
 	@echo '    make es-cluster-[start/stop/status]      Initialize elasticsearch cluster.'
+	@echo '    make flagr-[start/stop/status]           Initialize flagr.'
 	@echo '    make jaeger-[start/stop/status]          Initialize jaeger.'
 	@echo '    make kafka                               Initialize kafka.'
 	@echo '    make nats-[start/stop/status]            Initialize nats server.'
@@ -37,6 +38,15 @@ es-cluster-stop:
 
 es-cluster-status:
 	@docker-compose -f ./elasticsearch/cluster.yml ps
+
+flagr-start:
+	@docker-compose -f ./flagr/docker-compose.yml up -d
+
+flagr-stop:
+	@docker-compose -f ./flagr/docker-compose.yml down
+
+flagr-status:
+	@docker-compose -f ./flagr/docker-compose.yml ps
 
 influx-cli:
 	@docker-compose -f ./tick/cli.yml run --rm influxdb-cli

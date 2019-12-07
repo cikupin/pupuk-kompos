@@ -4,6 +4,7 @@ pupuk-kompos
 Just a collection of my personal docker-compose dev tools:
 
 * Elasticsearch 7.4.2
+* Flagr 1.1.5
 * Jaeger all-in-one 1.13
 * Apache Pulsar 2.4.1
 * Sonarqube 7.9.1
